@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="com.itheima.dao.OrdersDao">
+    <resultMap id="orders" type="com.itheima.pojo.Orders" autoMapping="true">
+        <collection property="product" autoMapping="true" select="com.itheima.dao.ProductDao.getById" column="productid" javaType="com.itheima.pojo.Product"></collection>
+    </resultMap>
+
+    <resultMap id="orders-details" type="com.itheima.pojo.Orders" autoMapping="true">
+        <collection property="product" autoMapping="true" select="com.itheima.dao.ProductDao.getById" column="productid" javaType="com.itheima.pojo.Product"></collection>
+        <collection property="member" autoMapping="true" select="com.itheima.dao.MemberDao.findById" column="memberid" javaType="com.itheima.pojo.Member"></collection>
+        <!--<collection property="travellers" autoMapping="true" select="com.itheima.dao.TravellerDao.findById" column="id" javaType="java.util.List"></collection>-->
+        <!--javatype指定pojo中属性的类型，oftype指定映射到集合中的pojo的类型-->
+        <collection property="travellers" autoMapping="true" select="com.itheima.dao.TravellerDao.findById" column="id" ofType="com.itheima.pojo.Traveller" javaType="java.util.List"></collection>
+    </resultMap>
+
+
+    <select id="findAll" resultMap="orders">
+        select * from orders
+    </select>
+
+    <select id="findById" resultMap="orders-details" parameterType="String">
+        select * from orders where id = #{id}
+    </select>
+</mapper>

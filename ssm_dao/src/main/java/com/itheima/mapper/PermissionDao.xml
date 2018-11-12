@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.dao.PermissionDao">
+    <select id="findPermissionByRoleId" parameterType="String" resultType="com.itheima.pojo.Permission">
+        select * from permission where id in (select permissionid from role_permission where roleid = #{id})
+    </select>
+
+    <select id="findAll" resultType="com.itheima.pojo.Permission">
+        select * from permission
+    </select>
+
+    <select id="findById" resultType="com.itheima.pojo.Permission" parameterType="String">
+        select * from permission where id = #{id}
+    </select>
+
+    <insert id="save" parameterType="com.itheima.pojo.Permission">
+        insert into permission(permissionname, url) values(#{permissionName}, #{url})
+    </insert>
+
+    <delete id="deletePermission" parameterType="String">
+        delete from permission where id = #{id}
+    </delete>
+
+    <delete id="deleteRolePermission" parameterType="String">
+        delete from role_permission where permissionid = #{id}
+    </delete>
+</mapper>

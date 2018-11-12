@@ -1,0 +1,26 @@
+package com.itheima.utils;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class DateUtils {
+
+    /**
+     * 日期转换成字符串方法
+     * @param date
+     * @param patt
+     * @return
+     */
+    public static String date_String(Date date, String patt) {
+        SimpleDateFormat sdf = new SimpleDateFormat(patt);
+        String format = sdf.format(date);
+        return format;
+    }
+
+    public static Date string_Date(String date, String patt) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat(patt);
+        Date parse = sdf.parse(date);
+        return parse;
+    }
+}

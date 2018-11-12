@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itheima.dao.UsersDao">
+    <resultMap id="users_role" type="com.itheima.pojo.Users" autoMapping="true">
+        <collection property="roles"
+                    autoMapping="true"
+                    select="com.itheima.dao.RoleDao.findRoleByUserId"
+                    column="id"
+                    ofType="com.itheima.pojo.Role"
+                    javaType="java.util.List"/>
+    </resultMap>
+
+
+
+    <select id="findAll" resultType="com.itheima.pojo.Users">
+        select * from users
+    </select>
+
+    <select id="findById" parameterType="String" resultMap="users_role">
+        select * from users where id = #{id}
+    </select>
+
+    <select id="findByUserName" parameterType="String" resultMap="users_role">
+        select * from users where username = #{userName}
+    </select>
+
+    <insert id="save" parameterType="com.itheima.pojo.Users">
+        insert into users(email, username, password, phoneNum, status) values(#{email}, #{username}, #{password}, #{phoneNum}, #{status})
+    </insert>
+
+    <insert id="addRoleToUser" parameterType="String">
+        insert into users_role(userid, roleid) values(#{userId}, #{roleId})
+    </insert>
+
+
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itheima.dao.RoleDao">
+
+    <resultMap id="role_permission" type="com.itheima.pojo.Role" autoMapping="true">
+        <result column="ID" property="id"/>
+        <collection property="permissions"
+                    autoMapping="true"
+                    select="com.itheima.dao.PermissionDao.findPermissionByRoleId"
+                    column="id"/>
+    </resultMap>
+
+    <select id="findRoleByUserId" parameterType="String" resultMap="role_permission">
+        select * from role where id in (select ROLEID from USERS_ROLE where USERID = #{id})
+    </select>
+
+    <select id="findAll" resultMap="role_permission">
+        select * from role
+    </select>
+
+    <select id="findById" parameterType="String" resultMap="role_permission">
+        select * from role where id = #{id}
+    </select>
+
+    <insert id="save" parameterType="com.itheima.pojo.Role">
+        insert into role(rolename, roledesc) values(#{roleName}, #{roleDesc})
+    </insert>
+
+    <insert id="addPermissionToRole" parameterType="String">
+        insert into role_permission values(#{permissionId}, #{roleId})
+    </insert>
+
+</mapper>
