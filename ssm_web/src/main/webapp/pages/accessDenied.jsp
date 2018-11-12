@@ -161,87 +161,88 @@
 		<!-- 页面头部 /-->
 
 		<!-- 导航侧栏 -->
-		<aside class="main-sidebar">
-	<!-- sidebar: style can be found in sidebar.less -->
-	<section class="sidebar">
-		<!-- Sidebar user panel -->
-		<div class="user-panel">
-			<div class="pull-left image">
-				<img src="${pageContext.request.contextPath}/img/user2-160x160.jpg"
-					class="img-circle" alt="User Image">
-			</div>
-			<div class="pull-left info">
-				<p>
-					未登录
-				</p>
-				<a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
-			</div>
-		</div>
+		<jsp:include page="aside.jsp"></jsp:include>
+		<%--<aside class="main-sidebar">--%>
+	<%--<!-- sidebar: style can be found in sidebar.less -->--%>
+	<%--<section class="sidebar">--%>
+		<%--<!-- Sidebar user panel -->--%>
+		<%--<div class="user-panel">--%>
+			<%--<div class="pull-left image">--%>
+				<%--<img src="${pageContext.request.contextPath}/img/user2-160x160.jpg"--%>
+					<%--class="img-circle" alt="User Image">--%>
+			<%--</div>--%>
+			<%--<div class="pull-left info">--%>
+				<%--<p>--%>
+					<%--未登录--%>
+				<%--</p>--%>
+				<%--<a href="#"><i class="fa fa-circle text-success"></i> 在线</a>--%>
+			<%--</div>--%>
+		<%--</div>--%>
 
-		<!-- sidebar menu: : style can be found in sidebar.less -->
-		<ul class="sidebar-menu">
-			<li class="header">菜单</li>
-			<li id="admin-index"><a
-				href="${pageContext.request.contextPath}/pages/main.jsp"><i
-					class="fa fa-dashboard"></i> <span>首页</span></a></li>
+		<%--<!-- sidebar menu: : style can be found in sidebar.less -->--%>
+		<%--<ul class="sidebar-menu">--%>
+			<%--<li class="header">菜单</li>--%>
+			<%--<li id="admin-index"><a--%>
+				<%--href="${pageContext.request.contextPath}/pages/main.jsp"><i--%>
+					<%--class="fa fa-dashboard"></i> <span>首页</span></a></li>--%>
 
-			<li class="treeview"><a href="#"> <i class="fa fa-cogs"></i>
-					<span>系统管理</span> <span class="pull-right-container"> <i
-						class="fa fa-angle-left pull-right"></i>
-				</span>
-			</a>
-				<ul class="treeview-menu">
+			<%--<li class="treeview"><a href="#"> <i class="fa fa-cogs"></i>--%>
+					<%--<span>系统管理</span> <span class="pull-right-container"> <i--%>
+						<%--class="fa fa-angle-left pull-right"></i>--%>
+				<%--</span>--%>
+			<%--</a>--%>
+				<%--<ul class="treeview-menu">--%>
 
-					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/user/findAll.do"> <i
-							class="fa fa-circle-o"></i> 用户管理
-					</a></li>
-					<li id="system-setting"><a href="${pageContext.request.contextPath}/role/findAll.do">
-							<i class="fa fa-circle-o"></i> 角色管理
-					</a></li>
-					<li id="system-setting"><a href="${pageContext.request.contextPath}/permission/findAll.do">
-							<i class="fa fa-circle-o"></i> 资源权限管理
-					</a></li>
-					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/sysLog/findAll.do"> <i
-							class="fa fa-circle-o"></i> 访问日志
-					</a></li>
+					<%--<li id="system-setting"><a--%>
+						<%--href="${pageContext.request.contextPath}/user/findAll.do"> <i--%>
+							<%--class="fa fa-circle-o"></i> 用户管理--%>
+					<%--</a></li>--%>
+					<%--<li id="system-setting"><a href="${pageContext.request.contextPath}/role/findAll.do">--%>
+							<%--<i class="fa fa-circle-o"></i> 角色管理--%>
+					<%--</a></li>--%>
+					<%--<li id="system-setting"><a href="${pageContext.request.contextPath}/permission/findAll.do">--%>
+							<%--<i class="fa fa-circle-o"></i> 资源权限管理--%>
+					<%--</a></li>--%>
+					<%--<li id="system-setting"><a--%>
+						<%--href="${pageContext.request.contextPath}/sysLog/findAll.do"> <i--%>
+							<%--class="fa fa-circle-o"></i> 访问日志--%>
+					<%--</a></li>--%>
 
-				</ul></li>
-			<li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
-					<span>基础数据</span> <span class="pull-right-container"> <i
-						class="fa fa-angle-left pull-right"></i>
-				</span>
-			</a>
-				<ul class="treeview-menu">
+				<%--</ul></li>--%>
+			<%--<li class="treeview"><a href="#"> <i class="fa fa-cube"></i>--%>
+					<%--<span>基础数据</span> <span class="pull-right-container"> <i--%>
+						<%--class="fa fa-angle-left pull-right"></i>--%>
+				<%--</span>--%>
+			<%--</a>--%>
+				<%--<ul class="treeview-menu">--%>
 
-					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/product/findAll.do">
-							<i class="fa fa-circle-o"></i> 产品管理
-					</a></li>
-					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/order/findAll.do?page=1&pageSize=3">
-							<i class="fa fa-circle-o"></i> 订单管理
-					</a></li>
+					<%--<li id="system-setting"><a--%>
+						<%--href="${pageContext.request.contextPath}/product/findAll.do">--%>
+							<%--<i class="fa fa-circle-o"></i> 产品管理--%>
+					<%--</a></li>--%>
+					<%--<li id="system-setting"><a--%>
+						<%--href="${pageContext.request.contextPath}/order/findAll.do?page=1&pageSize=3">--%>
+							<%--<i class="fa fa-circle-o"></i> 订单管理--%>
+					<%--</a></li>--%>
 
-				</ul></li>
+				<%--</ul></li>--%>
 
-		</ul>
-	</section>
-	<!-- /.sidebar -->
-</aside>
+		<%--</ul>--%>
+	<%--</section>--%>
+	<%--<!-- /.sidebar -->--%>
+<%--</aside>--%>
 		<!-- 导航侧栏 /-->
 
 		<!-- 内容区域 -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
-				<h1>登录失败 页面</h1>
+				<h1>访问失败 页面</h1>
 
 				<ol class="breadcrumb">
 					<li><a href="${pageContext.request.contextPath}/index.jsp"><i
 							class="fa fa-dashboard"></i> 首页</a></li>
-					<li class="active">登录失败</li>
+					<li class="active">访问失败</li>
 				</ol>
 
 			</section>
@@ -254,8 +255,8 @@
 					<div class="error-content">
 						
 						<p>
-							无访问权限 , 你可以 <a href="${pageContext.request.contextPath}/login.jsp">返回到登录页面</a>
-							更换账户密码
+							无访问权限 , 你可以 <a href="${pageContext.request.contextPath}/pages/login.jsp">返回到登录页面</a>
+							更换账户
 						</p>
 
 						

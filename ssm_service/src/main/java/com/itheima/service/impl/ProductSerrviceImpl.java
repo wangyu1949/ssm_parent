@@ -32,4 +32,9 @@ public class ProductSerrviceImpl implements ProductService {
     public Product getById(String id) {
         return productDao.getById(id);
     }
+
+    @Override
+    public void updateById(Product product) {
+        productDao.updateById(product);
+    }
 }

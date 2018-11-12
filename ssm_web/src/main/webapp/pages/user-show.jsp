@@ -79,16 +79,16 @@
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                用户管理
-                <small>全部用户</small>
+                用户详情
+                <small>全部角色</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="${pageContext.request.contextPath}/index.jsp"><i
                         class="fa fa-dashboard"></i> 首页</a></li>
                 <li><a
-                        href="${pageContext.request.contextPath}/user/findAll.do">用户管理</a></li>
+                        href="${pageContext.request.contextPath}/user/findAll.do">用户详情</a></li>
 
-                <li class="active">全部用户</li>
+                <li class="active">全部角色</li>
             </ol>
         </section>
         <!-- 内容头部 /-->
@@ -106,26 +106,26 @@
                     <div class="table-box">
 
                         <!--工具栏-->
-                        <div class="pull-left">
-                            <div class="form-group form-inline">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default" title="新建">
-                                        <i class="fa fa-file-o"></i> 新建
-                                    </button>
+                        <%--<div class="pull-left">--%>
+                            <%--<div class="form-group form-inline">--%>
+                                <%--<div class="btn-group">--%>
+                                    <%--<button type="button" class="btn btn-default" title="新建">--%>
+                                        <%--<i class="fa fa-file-o"></i> 新建--%>
+                                    <%--</button>--%>
 
-                                    <button type="button" class="btn btn-default" title="刷新">
-                                        <i class="fa fa-refresh"></i> 刷新
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-tools pull-right">
-                            <div class="has-feedback">
-                                <input type="text" class="form-control input-sm"
-                                       placeholder="搜索"> <span
-                                    class="glyphicon glyphicon-search form-control-feedback"></span>
-                            </div>
-                        </div>
+                                    <%--<button type="button" class="btn btn-default" title="刷新">--%>
+                                        <%--<i class="fa fa-refresh"></i> 刷新--%>
+                                    <%--</button>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="box-tools pull-right">--%>
+                            <%--<div class="has-feedback">--%>
+                                <%--<input type="text" class="form-control input-sm"--%>
+                                       <%--placeholder="搜索"> <span--%>
+                                    <%--class="glyphicon glyphicon-search form-control-feedback"></span>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
                         <!--工具栏/-->
 
                         <!--数据列表-->

@@ -4,11 +4,14 @@ import com.github.pagehelper.PageInfo;
 import com.itheima.pojo.Permission;
 import com.itheima.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @Controller
@@ -25,6 +28,7 @@ public class PermissionController {
      * @return
      */
     @RequestMapping("/findAll")
+    @PermitAll
     public ModelAndView findAll(@RequestParam(name = "pageNum", required = true, defaultValue = "1") int page, @RequestParam(name = "pageSize", required = true, defaultValue = "5") int size) {
         List<Permission> permissionList = permissionService.findAll(page, size);
         PageInfo<Permission> permissionPageInfo = new PageInfo<>(permissionList);
@@ -41,6 +45,7 @@ public class PermissionController {
      * @return
      */
     @RequestMapping("/findById")
+    @PermitAll
     public ModelAndView findById(@RequestParam(name = "id") String id) {
         Permission permission = permissionService.findById(id);
         ModelAndView mv = new ModelAndView();
@@ -55,6 +60,7 @@ public class PermissionController {
      * @return
      */
     @RequestMapping("/save")
+    @RolesAllowed("ADMIN")
     public ModelAndView save(Permission permission) {
         permissionService.save(permission);
         return findAll(1, 5);
@@ -66,6 +72,7 @@ public class PermissionController {
      * @return
      */
     @RequestMapping("/deletePermission")
+    @RolesAllowed("ADMIN")
     public ModelAndView deletePermission(String id) {
         permissionService.deletePermission(id);
         return findAll(1, 5);

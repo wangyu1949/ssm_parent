@@ -29,4 +29,6 @@ public interface ProductDao {
      * @return
      */
     public Product getById(String id);
+
+    void updateById(Product product);
 }

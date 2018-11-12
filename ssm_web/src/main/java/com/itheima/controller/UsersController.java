@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.security.DenyAll;
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,6 +33,7 @@ public class UsersController {
      * @throws Exception
      */
     @RequestMapping("/findAll")
+    @PermitAll
     public ModelAndView findAll(@RequestParam(name = "pageNum", required = true, defaultValue = "1") int page, @RequestParam(name = "pageSize", required = true, defaultValue = "5") int size) throws Exception {
         List<Users> users = usersService.findAll(page, size);
         PageInfo<Users> usersPageInfo = new PageInfo<>(users);
@@ -47,6 +51,7 @@ public class UsersController {
      * @throws Exception
      */
     @RequestMapping("/findById")
+    @DenyAll
     public ModelAndView findById(@RequestParam(name = "id", required = true) String id) throws Exception {
         Users byId = usersService.findById(id);
         ModelAndView mv = new ModelAndView();
@@ -56,6 +61,7 @@ public class UsersController {
     }
 
     @RequestMapping("/save")
+    @RolesAllowed("ADMIN")
     public ModelAndView save(Users users) throws Exception {
 //        System.out.println("save...............");
         usersService.save(users);
@@ -64,6 +70,7 @@ public class UsersController {
     }
 
     @RequestMapping("/findUserByIdAndAddRole")
+    @PermitAll
     public ModelAndView findUserByIdAndAddRole(String id) throws Exception {
         ModelAndView mv = new ModelAndView();
         List<Role> roleList = usersService.findAllRole(id);
@@ -79,6 +86,7 @@ public class UsersController {
      * @return
      */
     @RequestMapping("/addRoleToUser")
+    @RolesAllowed("ADMIN")
     public ModelAndView addRoleToUser(@RequestParam(name = "userId") String userId, @RequestParam(name = "ids") String[] ids) throws Exception {
 
 //        System.out.println(userId.toString() + "+++++++++++++++++++++++++++++++");

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.security.PermitAll;
 import java.util.List;
 
 @Controller
@@ -32,6 +33,7 @@ public class OrdersController {
 //    }
 
     @RequestMapping("/findAll")
+    @PermitAll
     public ModelAndView findAll(@RequestParam(name = "pageNum", required = true, defaultValue = "1") int page, @RequestParam(name = "pageSize", required = true, defaultValue = "5") int size) {
         List<Orders> orders = ordersService.findAll(page, size);
         PageInfo<Orders> pageInfo = new PageInfo<>(orders);
@@ -44,6 +46,7 @@ public class OrdersController {
 
 
     @RequestMapping("/findById")
+    @PermitAll
     public ModelAndView findById(String id) {
         Orders byId = ordersService.findById(id);
         //System.out.println(byId);

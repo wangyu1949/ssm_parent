@@ -15,4 +15,8 @@
     <select id="getById" parameterType="String" resultType="com.itheima.pojo.Product">
         select * from product where id = #{id}
     </select>
+
+    <update id="updateById" parameterType="com.itheima.pojo.Product">
+        update product set productnum = #{productNum}, productname = #{productName}, cityname = #{cityName}, departuretime = #{departureTime}, productprice = #{productPrice}, productdesc = #{productDesc}, productstatus = #{productStatus} where id = #{id}
+    </update>
 </mapper>

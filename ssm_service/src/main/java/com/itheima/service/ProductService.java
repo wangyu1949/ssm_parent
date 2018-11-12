@@ -11,4 +11,6 @@ public interface ProductService {
     void save(Product product);
 
     public Product getById(String id);
+
+    void updateById(Product product);
 }
