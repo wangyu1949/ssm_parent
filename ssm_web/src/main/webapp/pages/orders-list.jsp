@@ -207,7 +207,7 @@
 										<button type="button" class="btn btn-default" title="屏蔽">
 											<i class="fa fa-ban"></i> 屏蔽
 										</button>
-										<button type="button" class="btn btn-default" title="刷新">
+										<button type="button" class="btn btn-default" title="刷新" onclick="location.reload()">
 											<i class="fa fa-refresh"></i> 刷新
 										</button>
 									</div>
@@ -289,7 +289,7 @@
 										<button type="button" class="btn btn-default" title="屏蔽">
 											<i class="fa fa-ban"></i> 屏蔽
 										</button>
-										<button type="button" class="btn btn-default" title="刷新">
+										<button type="button" class="btn btn-default" title="刷新" onclick="location.reload()">
 											<i class="fa fa-refresh"></i> 刷新
 										</button>
 									</div>

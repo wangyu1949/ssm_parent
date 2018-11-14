@@ -1,5 +1,6 @@
 package com.itheima.pojo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class SysLog {
@@ -43,6 +44,10 @@ public class SysLog {
     }
 
     public String getVisitTimeStr() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        if (visitTime != null) {
+            visitTimeStr = sdf.format(visitTime);
+        }
         return visitTimeStr;
     }
 

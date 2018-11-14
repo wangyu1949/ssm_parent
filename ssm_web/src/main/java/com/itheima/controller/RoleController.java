@@ -25,7 +25,7 @@ public class RoleController {
 
     @RequestMapping("/findAll")
     @PermitAll
-    public ModelAndView findAll(@RequestParam(name = "pageNum", required = true, defaultValue = "1") int page, @RequestParam(name = "pageSize", required = true, defaultValue = "5") int size) {
+    public ModelAndView findAll(@RequestParam(name = "pageNum", required = true, defaultValue = "1") Integer page, @RequestParam(name = "pageSize", required = true, defaultValue = "5") Integer size) {
         List<Role> roles = roleService.findAll(page, size);
         PageInfo<Role> rolePageInfo = new PageInfo<>(roles);
         ModelAndView mv = new ModelAndView();

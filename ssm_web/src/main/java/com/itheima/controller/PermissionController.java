@@ -29,7 +29,7 @@ public class PermissionController {
      */
     @RequestMapping("/findAll")
     @PermitAll
-    public ModelAndView findAll(@RequestParam(name = "pageNum", required = true, defaultValue = "1") int page, @RequestParam(name = "pageSize", required = true, defaultValue = "5") int size) {
+    public ModelAndView findAll(@RequestParam(name = "pageNum", required = true, defaultValue = "1") Integer page, @RequestParam(name = "pageSize", required = true, defaultValue = "5") Integer size) {
         List<Permission> permissionList = permissionService.findAll(page, size);
         PageInfo<Permission> permissionPageInfo = new PageInfo<>(permissionList);
         ModelAndView mv = new ModelAndView();

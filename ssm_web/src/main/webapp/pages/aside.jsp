@@ -51,7 +51,7 @@
 							<i class="fa fa-circle-o"></i> 资源权限管理
 					</a></li>
 					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/sysLog/findAll.do"> <i
+						href="${pageContext.request.contextPath}/sysLog/findAll?pageNum=1&pageSize=5"> <i
 							class="fa fa-circle-o"></i> 访问日志
 					</a></li>
 

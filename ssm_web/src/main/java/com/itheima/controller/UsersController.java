@@ -34,8 +34,13 @@ public class UsersController {
      */
     @RequestMapping("/findAll")
     @PermitAll
-    public ModelAndView findAll(@RequestParam(name = "pageNum", required = true, defaultValue = "1") int page, @RequestParam(name = "pageSize", required = true, defaultValue = "5") int size) throws Exception {
-        List<Users> users = usersService.findAll(page, size);
+    public ModelAndView findAll(@RequestParam(name = "pageNum", required = true, defaultValue = "1") Integer page, @RequestParam(name = "pageSize", required = true, defaultValue = "5") Integer size) {
+        List<Users> users = null;
+        try {
+            users = usersService.findAll(page, size);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         PageInfo<Users> usersPageInfo = new PageInfo<>(users);
         ModelAndView mv = new ModelAndView();
 
@@ -52,8 +57,13 @@ public class UsersController {
      */
     @RequestMapping("/findById")
     @DenyAll
-    public ModelAndView findById(@RequestParam(name = "id", required = true) String id) throws Exception {
-        Users byId = usersService.findById(id);
+    public ModelAndView findById(@RequestParam(name = "id", required = true) String id) {
+        Users byId = null;
+        try {
+            byId = usersService.findById(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         ModelAndView mv = new ModelAndView();
         mv.addObject("user", byId);
         mv.setViewName("user-show");
@@ -62,16 +72,20 @@ public class UsersController {
 
     @RequestMapping("/save")
     @RolesAllowed("ADMIN")
-    public ModelAndView save(Users users) throws Exception {
+    public ModelAndView save(Users users) {
 //        System.out.println("save...............");
-        usersService.save(users);
+        try {
+            usersService.save(users);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return findAll(1, 5);
     }
 
     @RequestMapping("/findUserByIdAndAddRole")
     @PermitAll
-    public ModelAndView findUserByIdAndAddRole(String id) throws Exception {
+    public ModelAndView findUserByIdAndAddRole(String id) {
         ModelAndView mv = new ModelAndView();
         List<Role> roleList = usersService.findAllRole(id);
         mv.addObject("userId", id);
@@ -87,7 +101,7 @@ public class UsersController {
      */
     @RequestMapping("/addRoleToUser")
     @RolesAllowed("ADMIN")
-    public ModelAndView addRoleToUser(@RequestParam(name = "userId") String userId, @RequestParam(name = "ids") String[] ids) throws Exception {
+    public ModelAndView addRoleToUser(@RequestParam(name = "userId") String userId, @RequestParam(name = "ids") String[] ids) {
 
 //        System.out.println(userId.toString() + "+++++++++++++++++++++++++++++++");
 //        System.out.println(Arrays.toString(ids) + "-----------------------------");
