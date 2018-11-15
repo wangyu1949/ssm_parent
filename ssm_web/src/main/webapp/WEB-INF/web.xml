@@ -7,6 +7,11 @@
 
   <display-name>Archetype Created Web Application</display-name>
 
+  <!--监听请求创建request对象-->
+  <listener>
+    <listener-class>javax.servlet.http.HttpServletRequest</listener-class>
+  </listener>
+
   <!--配置监听器-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
